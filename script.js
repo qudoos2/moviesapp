@@ -46,7 +46,7 @@ console.log(data.results)
             return 'red'
         }
     }
-    form.addEventListener('submit', (e)=>{
+   /* form.addEventListener('submit', (e)=>{
         e.preventDefault();
         const searchValue = search.value;
         if(searchValue & searchValue !==''){
@@ -56,4 +56,15 @@ console.log(data.results)
         else{
             window.location.reload()
         }
-    })
+    }) */
+
+    search.addEventListener(
+        "keyup",
+        function (event) {
+            if (event.target.value != "") {
+                getMovies(SEARCHAPI + event.target.value)
+            } else {
+                getMovies(APIURL);
+            }
+        }
+    )
